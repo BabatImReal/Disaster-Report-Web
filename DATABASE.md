@@ -4,11 +4,12 @@
 This database stores disaster reports, alerts, user details, and subscriptions for a disaster report website. It is designed to efficiently manage real-time disaster data and notify users based on their subscriptions.
 
 ## **Collections**
-The database consists of four main collections:
+The database consists of 5 main collections:
 - `persons` (User details)
 - `reports` (Disaster reports submitted by users)
 - `alerts` (Disaster alerts with severity levels)
 - `subscriptions` (User alert subscriptions)
+- `news` (News articles)
 
 ---
 
@@ -121,5 +122,64 @@ Stores user subscriptions for disaster alerts based on location.
 - `_id` : Unique subscription identifier (ObjectId)
 - `user_id` : References `_id` from `persons` collection
 - `location` : Stores `country` and `city`
+
+---
+
+# **News Collection**  
+Stores news articles related to disasters, including multiple media types such as images and videos.  
+
+## **Example Document**  
+```json
+{
+  "_id": ObjectId("601c8b15fc13ae1b00000004"),
+  "title": "Severe Flooding Hits Jakarta",
+  "content": "Heavy rainfall has led to severe flooding in Jakarta, affecting thousands of residents...",
+  "media": [
+    {
+      "name": "jakarta-flood-image",
+      "url": "https://cdn.example.com/floods/jakarta-1.jpg",
+      "type": "image",
+      "description": "Flooded streets in Jakarta"
+    },
+    {
+      "name": "jakarta-flood-video",
+      "url": "https://cdn.example.com/floods/jakarta-video.mp4",
+      "type": "video",
+      "thumbnail": "https://cdn.example.com/floods/jakarta-thumbnail.jpg",
+      "description": "Drone footage of the flood"
+    }
+  ],
+  "source": {
+    "name": "Jakarta Post",
+    "url": "https://jakartapost.com/news/flooding-2024"
+  },
+  "timestamp": ISODate("2024-03-28T10:30:00Z"),
+  "disaster_type": "Flood",
+  "location": {
+    "country": "Indonesia",
+    "city": "Jakarta"
+  }
+}
+```
+
+## **Fields**  
+
+- **`_id`** : Unique identifier for the news article (ObjectId).  
+- **`title`** : Title of the news article.  
+- **`content`** : Full text content of the news article.  
+- **`media`** : Array of media files (images, videos, etc.). Each media object includes:  
+  - **`name`** : Unique name for the media file.  
+  - **`url`** : Direct link to the media file.  
+  - **`type`** : Type of media (`image`, `video`, `audio`).  
+  - **`description`** *(optional)* : Short description of the media.  
+  - **`thumbnail`** *(optional, for videos)* : URL of a preview image for the video.  
+- **`source`** : Object containing the news source details:  
+  - **`name`** : Name of the news source.  
+  - **`url`** : Link to the original news source.  
+- **`timestamp`** : Time when the news was published.  
+- **`disaster_type`** : Type of disaster (e.g., Flood, Earthquake, Wildfire).  
+- **`location`** : Stores the location where the disaster occurred:
+  - **`country`** : Country name.  
+  - **`city`** : City name.  
 
 ---
