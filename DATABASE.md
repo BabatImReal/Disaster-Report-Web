@@ -43,6 +43,7 @@ Stores disaster reports submitted by users, including location details.
 {
   "_id": ObjectId("601c8b15fc13ae1b00000001"),
   "source": {
+    "name": "AnHuyDiet",
     "email": "reporter@example.com",
     "phone": "+9876543210"
   },
@@ -52,15 +53,17 @@ Stores disaster reports submitted by users, including location details.
     "country": "Indonesia",
     "city": "Jakarta"
   },
-  "timestamp": ISODate("2024-03-28T14:00:00Z")
+  "timestamp": ISODate("2024-03-28T14:00:00Z"),
+  "description": "Heavy flooding due to continuous rainfall, roads submerged."
 }
 ```
 
 ### **Fields:**
 - `_id` : Unique report identifier (ObjectId)
-- `source` : Contains `email` and `phone` of the reporter
+- `source` : Contains `name`, `email` and `phone` of the reporter
 - `location` : Stores `longitude`, `latitude`, `country`, and `city`
 - `timestamp` : Time when the report was submitted
+- `description` : more detail about the disaster 
 
 ---
 
@@ -82,7 +85,9 @@ Stores disaster alerts with severity levels and time range.
     "latitude": 13.7367,
     "country": "Thailand",
     "city": "Bangkok"
-  }
+  },
+  "source": ObjectId("601c8b15fc13ae1b00000001"),
+  "admin": ObjectId("601c8b15fc13ae1b00000000")
 }
 ```
 
@@ -92,6 +97,8 @@ Stores disaster alerts with severity levels and time range.
 - `level` : Severity level (e.g., Minor, Moderate, Severe)
 - `time` : Contains `from` and `to` timestamps
 - `location` : Stores `longitude`, `latitude`, `country`, and `city`
+- `source`: Identifier of the report of the disaster
+- `admin` : Identifier of the admin that verifies the alert.
 
 ---
 
