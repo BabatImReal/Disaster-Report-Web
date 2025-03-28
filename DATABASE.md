@@ -133,7 +133,11 @@ Stores news articles related to disasters, including multiple media types such a
 {
   "_id": ObjectId("601c8b15fc13ae1b00000004"),
   "title": "Severe Flooding Hits Jakarta",
-  "content": "Heavy rainfall has led to severe flooding in Jakarta, affecting thousands of residents...",
+  "content": "<p>Heavy rainfall has led to severe flooding in Jakarta...</p> 
+              <p>Here is an image of the flooding:</p> 
+              <p>![jakarta-flood-image]</p>
+              <p>Drone footage captured the situation:</p>
+              <p>![jakarta-flood-video]</p>",
   "media": [
     {
       "name": "jakarta-flood-image",
@@ -156,9 +160,12 @@ Stores news articles related to disasters, including multiple media types such a
   "timestamp": ISODate("2024-03-28T10:30:00Z"),
   "disaster_type": "Flood",
   "location": {
+    "longitude": 106.8456,
+    "latitude": -6.2088,
     "country": "Indonesia",
     "city": "Jakarta"
-  }
+  },
+  "related_alert": ObjectId("601c8b15fc13ae1b00000002")
 }
 ```
 
