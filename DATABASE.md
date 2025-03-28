@@ -160,12 +160,9 @@ Stores news articles related to disasters, including multiple media types such a
   "timestamp": ISODate("2024-03-28T10:30:00Z"),
   "disaster_type": "Flood",
   "location": {
-    "longitude": 106.8456,
-    "latitude": -6.2088,
     "country": "Indonesia",
     "city": "Jakarta"
-  },
-  "related_alert": ObjectId("601c8b15fc13ae1b00000002")
+  }
 }
 ```
 
