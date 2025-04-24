@@ -55,7 +55,13 @@ Stores disaster reports submitted by users, including location details.
     "city": "Jakarta"
   },
   "timestamp": ISODate("2024-03-28T14:00:00Z"),
-  "description": "Heavy flooding due to continuous rainfall, roads submerged."
+  "description": "Heavy flooding due to continuous rainfall, roads submerged.",
+  "images": [
+    {
+        "name": "user-image",
+        "url": "https://cdn.example.com/floods/image.jpg"
+    }
+  ]
 }
 ```
 
